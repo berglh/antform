@@ -9,7 +9,7 @@ script:
   - gox -osarch="linux/amd64 linux/386 darwin/amd64 darwin/386 windows/386 windows/amd64" -ldflags="-s -w" -output="build/{{.Dir}}-$TRAVIS_TAG-{{.OS}}-{{.Arch}}"
   - mkdir dist && cd build
   - wget -O - https://github.com/upx/upx/releases/download/v3.94/upx-3.94-amd64_linux.tar.xz | xz -d | tar -xv upx-3.94-amd64_linux/upx --strip-components=1 -C . 
-  - 'for i in *; do ./upx --brute $i; done'
+  - 'for i in $(ls antform-* | grep -v exe); do ./upx --brute $i; done'
   - 'for i in *.exe; do cp $i antform.exe; zip ../dist/$(echo $i | sed -e "s/.exe//g").zip antform.exe; rm antform.exe; done'
   - 'for i in $(ls antform-* | grep -v exe); do cp $i antform; tar -zcvf ../dist/$i.tar.gz antform; rm antform; done'
   - cd ../

@@ -1,6 +1,5 @@
 
 # antform
----
 [![Build Status](https://travis-ci.org/berglh/antform.svg?branch=master)](https://travis-ci.org/berglh/antform)<br />
 
 Despite it's name, **antform** is not a form markup language for our *[arthropodous friends](https://www.youtube.com/watch?v=ZGIZ-zUvotM)*, it is actually a command line tool written in *Go* that converts a *[terraform](https://github.com/hashicorp/terraform) state* file into an *[ansible](https://github.com/ansible/ansible)* inventory file.
